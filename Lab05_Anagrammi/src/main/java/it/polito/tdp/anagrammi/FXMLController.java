@@ -39,14 +39,22 @@ public class FXMLController {
     	txtCorrette.clear();
     	txtErrate.clear();
     	List<String> risultato = new ArrayList<String>(model.anagrammi(txtParola.getText()));
+    	List<String> risultato2 = new ArrayList<String>(model.anagrammiErrati());
     	for(String s : risultato) {
     		txtCorrette.appendText(s+"\n");
     	}
+    	for(String s : risultato2) {
+    		txtErrate.appendText(s+"\n");
+    	}
+    	
+    	txtParola.clear();
     }
 
     @FXML
     void doReset(ActionEvent event) {
-
+    	txtCorrette.clear();
+    	txtErrate.clear();
+    	txtParola.clear();
     }
     public void setModel(Model model) {
     	this.model = model;
